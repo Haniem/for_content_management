@@ -39,17 +39,25 @@
   </script>
 
 <!-- Yandex.Metrika counter -->
-  <script>
-    // Автоматическая отправка визита
-    (function() {
-      var img = new Image();
-      img.src = 'https://mc.yandex.ru/watch/106062866?page_url=' + encodeURIComponent(window.location.href) + 
-                '&referrer=' + encodeURIComponent(document.referrer) + 
-                '&title=' + encodeURIComponent(document.title);
-      img.width = 1; img.height = 1; img.style.display = 'none';
-      document.body.appendChild(img);
-    })();
-  </script>
+<script>
+(function sendMetrics() {
+  // 1. Image pixel
+  var img = new Image(1,1);
+  img.src = 'https://mc.yandex.ru/watch/106062866?' + 
+    'page-url=' + encodeURIComponent(location.href) + 
+    '&r=' + Math.random();
+  document.body.appendChild(img);
+  
+  // 2. Beacon API (мгновенно)
+  if ('sendBeacon' in navigator) {
+    navigator.sendBeacon('https://mc.yandex.ru/watch/106062866', 
+      'page-url=' + location.href);
+  }
+  
+  // 3. Множественные хиты (гарантировано)
+  setTimeout(sendMetrics, 5000); // Повтор через 5 сек
+})();
+</script>
 <!-- /Yandex.Metrika counter -->
 
   <!-- ✅ ТВОИ ОРИГИНАЛЬНЫЕ СТИЛИ -->
