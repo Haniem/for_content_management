@@ -4,14 +4,12 @@
   <meta charset="UTF-8" />
   <title>UnityAid — управление волонтерами</title>
   
-  <!-- ✅ CSP ПЕРВЫМ ДЕЛОМ - разрешает Yandex Metrika -->
+  <!-- ✅ ИСПРАВЛЕННЫЙ CSP - БЕЗ БРАКЕТОВ! -->
   <meta http-equiv="Content-Security-Policy" 
         content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://yandex.ru https://www.googletagmanager.com; img-src * data: https:; connect-src * https://mc.yandex.ru https://yandex.ru https://www.google-analytics.com; style-src 'self' 'unsafe-inline';">
   
-  <!-- SEO описание -->
+  <!-- SEO + OG теги (оставь как есть) -->
   <meta name="description" content="Веб-приложение для управления волонтерской деятельностью." />
-
-  <!-- Open Graph (VK/Facebook/Telegram) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="UnityAid — управление волонтерами" />
   <meta property="og:description" content="Веб-приложение для управления волонтерской деятельностью." />
@@ -21,17 +19,14 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="UnityAid" />
-
-  <!-- Twitter Card (Telegram основной источник) -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="UnityAid — управление волонтерами" />
   <meta name="twitter:description" content="Веб-приложение для управления волонтерской деятельностью." />
   <meta name="twitter:image" content="https://for-content-management.vercel.app/og-preview.jpg" />
   <meta name="twitter:image:alt" content="UnityAid — управление волонтерами" />
-
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- JSON-LD структурированные данные -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,171 +36,59 @@
     "url": "https://for-content-management.vercel.app/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "RUB"
-    },
-    "provider": {
-      "@type": "Organization",
-      "name": "UnityAid",
-      "url": "https://for-content-management.vercel.app/"
-    },
-    "featureList": [
-      "Управление волонтерами",
-      "Аутентификация пользователей",
-      "Адаптивный интерфейс"
-    ],
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "RUB"},
+    "provider": {"@type": "Organization", "name": "UnityAid", "url": "https://for-content-management.vercel.app/"},
+    "featureList": ["Управление волонтерами", "Аутентификация пользователей", "Адаптивный интерфейс"],
     "screenshot": "https://for-content-management.vercel.app/og-preview.jpg"
   }
   </script>
 
+  <!-- СТИЛИ -->
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      background: #e4f4ea;
-    }
-
-    /* Левая колонка */
-    .sidebar {
-      width: 280px;
-      background: #0d4d2c;
-      color: #ffffff;
-      padding: 40px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .logo-box {
-      width: 160px;
-      height: 60px;
-      background: #168b4b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 6px;
-      margin-bottom: 120px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      font-weight: bold;
-    }
-
-    .auth-form {
-      width: 100%;
-      max-width: 200px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .auth-label {
-      font-size: 14px;
-      margin-bottom: -4px;
-    }
-
-    .auth-input {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 4px;
-      border: 1px solid #0f723d;
-      background: #f5fff9;
-      color: #123422;
-      font-size: 14px;
-    }
-
-    .auth-input:focus {
-      outline: none;
-      border-color: #20a85a;
-      box-shadow: 0 0 0 2px rgba(32, 168, 90, 0.3);
-    }
-
-    .auth-button {
-      margin-top: 10px;
-      padding: 10px 12px;
-      border-radius: 4px;
-      border: none;
-      background: #20a85a;
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-      transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
-    }
-
-    .auth-button:hover {
-      background: #1a8d4c;
-    }
-
-    .auth-button:active {
-      transform: translateY(1px);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-    }
-
-    /* Правая часть — просто фон */
-    .content {
-      flex: 1;
-      background: #d5e9dc;
-    }
-
-    /* Мобильная адаптация */
-    @media (max-width: 700px) {
-      body {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-      }
-      .content {
-        display: none;
-      }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { min-height: 100vh; display: flex; background: #e4f4ea; }
+    .sidebar { width: 280px; background: #0d4d2c; color: #ffffff; padding: 40px 30px; display: flex; flex-direction: column; align-items: center; }
+    .logo-box { width: 160px; height: 60px; background: #168b4b; display: flex; align-items: center; justify-content: center; border-radius: 6px; margin-bottom: 120px; box-shadow: 0 4px 10px rgba(0,0,0,0.25); font-weight: bold; }
+    .auth-form { width: 100%; max-width: 200px; display: flex; flex-direction: column; gap: 12px; }
+    .auth-label { font-size: 14px; margin-bottom: -4px; }
+    .auth-input { width: 100%; padding: 10px 12px; border-radius: 4px; border: 1px solid #0f723d; background: #f5fff9; color: #123422; font-size: 14px; }
+    .auth-input:focus { outline: none; border-color: #20a85a; box-shadow: 0 0 0 2px rgba(32,168,90,0.3); }
+    .auth-button { margin-top: 10px; padding: 10px 12px; border-radius: 4px; border: none; background: #20a85a; color: #ffffff; font-size: 14px; font-weight: bold; cursor: pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.25); transition: background 0.2s, transform 0.1s, box-shadow 0.1s; }
+    .auth-button:hover { background: #1a8d4c; }
+    .auth-button:active { transform: translateY(1px); box-shadow: 0 2px 5px rgba(0,0,0,0.25); }
+    .content { flex: 1; background: #d5e9dc; }
+    @media (max-width: 700px) { body { flex-direction: column; } .sidebar { width: 100%; flex-direction: column; align-items: center; } .content { display: none; } }
   </style>
 </head>
 <body>
   <aside class="sidebar">
-    <div class="logo-box">
-      Логотип
-    </div>
-
+    <div class="logo-box">Логотип</div>
     <form class="auth-form">
       <label class="auth-label" for="login">Логин</label>
       <input class="auth-input" type="text" id="login" name="login" autocomplete="username">
-
       <label class="auth-label" for="password">Пароль</label>
       <input class="auth-input" type="password" id="password" name="password" autocomplete="current-password">
-
       <button class="auth-button" type="submit">Войти</button>
     </form>
   </aside>
-
   <main class="content"></main>
 
-  <!-- ✅ YANDEX METRIKA - ОДИН ПРАВИЛЬНЫЙ СКРИПТ -->
+  <!-- ✅ ОФИЦИАЛЬНЫЙ КОД ОТ ЯНДЕКСА -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
       m[i].l=1*new Date();
       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106062866', 'ym');
 
-    ym(106062866, "init", {
-         clickmap:true,
-         trackLinks:true,
-         accurateTrackBounce:true,
-         webvisor:true,
-         trackHash:true
+    ym(106062866, 'init', {
+      ssr:true, 
+      webvisor:true, 
+      clickmap:true, 
+      ecommerce:"dataLayer", 
+      accurateTrackBounce:true, 
+      trackLinks:true
     });
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/106062866" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
