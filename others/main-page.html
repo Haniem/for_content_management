@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Главная страница</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #e4f4ea;
+      color: #123422;
+    }
+
+    /* Верхний хедер */
+    .header {
+      height: 60px;
+      background: #0d4d2c;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+    }
+
+    .header-logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .header-user {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #20a85a;
+      border: 2px solid #ffffff;
+    }
+
+    /* Основная область: слева меню, справа контент */
+    .layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: calc(100vh - 60px);
+    }
+
+    /* Левое меню */
+    .sidebar {
+      background: #f2fbf6;
+      border-right: 1px solid #c4e2cf;
+      padding: 25px 20px;
+    }
+
+    .sidebar-title {
+      margin-bottom: 15px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .menu-list {
+      list-style: none;
+    }
+
+    .menu-item {
+      margin-bottom: 10px;
+      padding: 6px 4px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .menu-item:hover {
+      background: #20a85a;
+      color: #ffffff;
+    }
+
+    /* Контент справа */
+    .content {
+      padding: 25px 30px;
+      overflow-y: auto;
+    }
+
+    .banner {
+      background: #cfe9d7;
+      border-radius: 6px;
+      padding: 25px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-gap: 25px;
+    }
+
+    .card {
+      background: #cfe9d7;
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* Адаптация */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 180px 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        order: 2;
+      }
+
+      .content {
+        order: 1;
+      }
+
+      .cards-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-logo">Logo</div>
+    <div class="header-user"></div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-title">Menu</div>
+      <ul class="menu-list">
+        <li class="menu-item">1. Главная</li>
+        <li class="menu-item">2. События</li>
+        <li class="menu-item">3. Задачи</li>
+        <li class="menu-item">4. Отчёты</li>
+        <li class="menu-item">5. Настройки</li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <section class="banner">
+        Banner
+      </section>
+
+      <section class="cards-row">
+        <div class="card">Closest events</div>
+        <div class="card">My tasks</div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
