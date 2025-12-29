@@ -39,21 +39,17 @@
   </script>
 
 <!-- Yandex.Metrika counter -->
-  <script async src="https://mc.yandex.ru/metrika/tag.js?id=106062866"></script>
   <script>
-    window.ym = window.ym || function(){(ym.a = ym.a || []).push(arguments)};
-    ym.l = new Date().getTime();
-    ym(106062866, 'init', {
-      clickmap:true,
-      trackLinks:true,
-      accurateTrackBounce:true,
-      webvisor:true,
-      ecommerce:"dataLayer"
-    });
+    // Автоматическая отправка визита
+    (function() {
+      var img = new Image();
+      img.src = 'https://mc.yandex.ru/watch/106062866?page_url=' + encodeURIComponent(window.location.href) + 
+                '&referrer=' + encodeURIComponent(document.referrer) + 
+                '&title=' + encodeURIComponent(document.title);
+      img.width = 1; img.height = 1; img.style.display = 'none';
+      document.body.appendChild(img);
+    })();
   </script>
-  <noscript>
-    <div><img src="https://mc.yandex.ru/watch/106062866" style="position:absolute; left:-9999px;" alt="" /></div>
-  </noscript>
 <!-- /Yandex.Metrika counter -->
 
   <!-- ✅ ТВОИ ОРИГИНАЛЬНЫЕ СТИЛИ -->
@@ -85,5 +81,12 @@
     </form>
   </aside>
   <main class="content"></main>
+  
+  <noscript>
+    <div style="position:absolute;left:-9999px">
+      <img src="https://mc.yandex.ru/watch/106062866" style="position:absolute;left:-9999px" alt="" />
+    </div>
+  </noscript>
+  <script>fetch('/api/track');</script>
 </body>
 </html>
