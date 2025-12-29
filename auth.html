@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8" />
+  <title>UnityAid</title>
+
+    <!-- Базовое SEO-описание -->
+    <meta name="description"
+          content="Веб-приложение для управления волонтерской деятельностью." />
+
+    <!-- Open Graph для соцсетей -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title"
+          content="Система управления резервом абитуриентов — МГТУ им. Г.И. Носова" />
+    <meta property="og:description"
+          content="Веб-приложение для приёмной комиссии МГТУ им. Г.И. Носова." />
+    <meta property="og:url" content="https://priem-admission.vercel.app/" />
+    <meta property="og:image"
+          content="https://priem-admission.vercel.app/og-preview.png" />
+
+    <!-- Дополнительно для Telegram/Twitter‑карточек -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Можешь добавить favicon -->
+    <link rel="icon" href="/favicon.ico" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      background: #e4f4ea;
+    }
+
+    /* Левая колонка */
+    .sidebar {
+      width: 280px;
+      background: #0d4d2c;
+      color: #ffffff;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-box {
+      width: 160px;
+      height: 60px;
+      background: #168b4b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      margin-bottom: 120px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      font-weight: bold;
+    }
+
+    .auth-form {
+      width: 100%;
+      max-width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .auth-label {
+      font-size: 14px;
+      margin-bottom: -4px;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 4px;
+      border: 1px solid #0f723d;
+      background: #f5fff9;
+      color: #123422;
+      font-size: 14px;
+    }
+
+    .auth-input:focus {
+      outline: none;
+      border-color: #20a85a;
+      box-shadow: 0 0 0 2px rgba(32, 168, 90, 0.3);
+    }
+
+    .auth-button {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 4px;
+      border: none;
+      background: #20a85a;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+      transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
+    }
+
+    .auth-button:hover {
+      background: #1a8d4c;
+    }
+
+    .auth-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Правая часть — просто фон, как в макете */
+    .content {
+      flex: 1;
+      background: #d5e9dc;
+    }
+
+    /* Небольшая адаптация */
+    @media (max-width: 700px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .content {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo-box">
+      Логотип
+    </div>
+
+    <form class="auth-form">
+      <label class="auth-label" for="login">Логин</label>
+      <input class="auth-input" type="text" id="login" name="login" autocomplete="username">
+
+      <label class="auth-label" for="password">Пароль</label>
+      <input class="auth-input" type="password" id="password" name="password" autocomplete="current-password">
+
+      <button class="auth-button" type="submit">Войти</button>
+    </form>
+  </aside>
+
+  <main class="content"></main>
+</body>
+</html>
