@@ -23,20 +23,24 @@
   <link rel="icon" href="/favicon.ico" />
 
   <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "UnityAid — управление волонтерами",
-    "description": "Веб-приложение для управления волонтерской деятельностью",
-    "url": "https://for-content-management.vercel.app/",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "RUB"},
-    "provider": {"@type": "Organization", "name": "UnityAid"},
-    "featureList": ["Управление волонтерами", "Аутентификация", "Адаптивный интерфейс"]
-  }
-  </script>
+<script>
+(function() {
+  const params = new URLSearchParams({
+    'cn': 'read',              // ✅ Тип события
+    'rn': Math.random(),       // ✅ Анти-кэш
+    'page-url': location.href, // ✅ Текущая страница
+    'referrer': document.referrer
+  });
+  
+  // Image pixel
+  const img = new Image(1, 1);
+  img.src = `https://mc.yandex.ru/watch/106062866?${params}`;
+  document.body.appendChild(img);
+  
+  // Beacon
+  navigator.sendBeacon('https://mc.yandex.ru/watch/106062866', params.toString());
+})();
+</script>
 
 <!-- Yandex.Metrika counter -->
 <script>
